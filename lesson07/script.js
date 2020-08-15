@@ -2,12 +2,12 @@
 
 let out = document.getElementById('out');
 let day = new Date();
-let week = ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'];
+let week = ['понедельник','вторник','среда','четверг','пятница','суббота','воскресенье'];
 //Find weekday 
-let today = day.getDay();
+let today = day.getDay() - 1;
 
 week.splice(6,1, '<i>' +'суббота'+'</i>');
-week.splice(0,1, '<i>' +'воскресенье'+'</i>');
+week.splice(6,1, '<i>' +'воскресенье'+'</i>');
 
 week.splice(today,1, '<strong>' + week[today] + '</strong>');
 
