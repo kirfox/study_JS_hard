@@ -87,7 +87,7 @@ let appData = {
     addExpensesBlock: function(){
         let cloneExpensesItem = expensesItems[0].cloneNode(true);
     
-        expensesItems[0].parentNode.insertBefore(cloneExpensesItem, expensesPlus);
+        expensesItems[0].parentNode.after(cloneExpensesItem, expensesPlus);
         expensesItems = document.querySelectorAll('.expenses-items');
         if (expensesTitle.value !== '' || expensesAmount.value !== '') {
             expensesTitle.value = '';
@@ -128,7 +128,7 @@ let appData = {
      //add inputs in block 'Дополнительный доход'
     addIncomeBlock: function(){
         let cloneIncomeItem = incomeItem[0].cloneNode(true);
-        incomeItem[0].parentNode.insertBefore(cloneIncomeItem, incomePlus);
+        incomeItem[0].parentNode.after(cloneIncomeItem, incomePlus);
         incomeItem = document.querySelectorAll('.income-items');
         
         if (incomeTitle.value !== '' || incomeAmount.value !== '') {
