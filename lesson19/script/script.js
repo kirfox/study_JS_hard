@@ -108,19 +108,24 @@ window.addEventListener('DOMContentLoaded', function(){
     togglePopUp();
     
     //smooth scrolling
-    const anchors = document.querySelectorAll('a[href*="#"]');
+    const smoothScrolling = () =>{
+        const anchors = document.querySelectorAll('a[href*="#"]');
 
-    for (let anchor of anchors) {
-    anchor.addEventListener('click',(e) => {
-        e.preventDefault();
-        
-        const blockID = anchor.getAttribute('href').substr(1);
-        
-        document.getElementById(blockID).scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+        for (let anchor of anchors) {
+        anchor.addEventListener('click',(e) => {
+            e.preventDefault();
+            
+            const blockID = anchor.getAttribute('href').substr(1);
+            
+            document.getElementById(blockID).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+            });
         });
-    });
-    }
+        }
+    };
+
+    smoothScrolling();
+    
     
 });
