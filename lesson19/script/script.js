@@ -57,7 +57,7 @@ window.addEventListener('DOMContentLoaded', function(){
             menu = document.querySelector('menu'),
             closeBtn = document.querySelector('.close-btn'),
             menuItems = menu.querySelectorAll('ul>li');
-
+            
         const handlerMenu = () =>{
             menu.classList.toggle('active-menu');   
         };
@@ -75,12 +75,14 @@ window.addEventListener('DOMContentLoaded', function(){
         const popup = document.querySelector('.popup'),
             popupBtn = document.querySelectorAll('.popup-btn'),
             popUpClose = document.querySelector('.popup-close'),
-            popupContent = document.querySelector('.popup-content'),
-            width = document.documentElement.clientWidth;
+            popupContent = document.querySelector('.popup-content');
+            
 
         let internal;
         let count = -10;   
         const animateModal = () =>{
+            const width = document.documentElement.clientWidth;
+            
             popup.style.display = 'block';
             internal = requestAnimationFrame(animateModal);
             count+= 2;
@@ -109,12 +111,13 @@ window.addEventListener('DOMContentLoaded', function(){
     
     //smooth scrolling
     const smoothScrolling = () =>{
-        const anchors = document.querySelectorAll('a[href*="#"]');
-
+        const menu = document.querySelector('menu');
+        const anchors = menu.querySelectorAll('li a[href*="#"]');
+        const btn= document.querySelector('a');
+ 
         for (let anchor of anchors) {
         anchor.addEventListener('click',(e) => {
             e.preventDefault();
-            
             const blockID = anchor.getAttribute('href').substr(1);
             
             document.getElementById(blockID).scrollIntoView({
@@ -123,6 +126,15 @@ window.addEventListener('DOMContentLoaded', function(){
             });
         });
         }
+        btn.addEventListener('click',(e) => {
+            e.preventDefault();
+            const blockID = btn.getAttribute('href').substr(1);
+            
+            document.getElementById(blockID).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+            });
+        });
     };
 
     smoothScrolling();
